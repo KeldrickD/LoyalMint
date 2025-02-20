@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+const webpack = require('webpack'); 
 
 module.exports = function override(config, env) {
     const fallback = {
@@ -12,7 +12,8 @@ module.exports = function override(config, env) {
         "process": require.resolve("process/browser"),
         "assert": require.resolve("assert/"),
         "util": require.resolve("util/"),
-        "vm": require.resolve("vm-browserify")
+        "vm": require.resolve("vm-browserify"),
+        "url": require.resolve("url/") // Added fallback for "url" module
     };
 
     config.resolve.fallback = fallback;
@@ -26,4 +27,4 @@ module.exports = function override(config, env) {
     config.ignoreWarnings = [/Failed to parse source map/];
     
     return config;
-} 
+}
